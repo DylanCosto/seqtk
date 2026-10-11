@@ -4,6 +4,10 @@ BINDIR=/usr/local/bin
 
 all:seqtk
 
+.PHONY: test
+test:seqtk
+		python3 tests/test_sample.py
+
 seqtk:seqtk.c khash.h kseq.h
 		$(CC) $(CFLAGS) seqtk.c -o $@ -lz -lm
 
